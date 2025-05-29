@@ -1,0 +1,41 @@
+.primer-footer {
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+  padding: 2rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  border-top: 1px solid #333;
+}
+
+.primer-footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.primer-footer-section {
+  flex: 1 1 250px;
+}
+
+.primer-footer-section h4 {
+  font-size: 1rem;
+  margin-bottom: 0;
+  border-bottom: 2px solid #444;
+  padding-bottom: 0.4rem;
+  color: #00d8ff;
+}
+
+.primer-footer-section p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.primer-footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #bbb;
+}
