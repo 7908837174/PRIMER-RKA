@@ -43,7 +43,11 @@ app.use(passport.session());
 
 app.use(
     cors({
-        origin:config.FRONTEND_ORIGIN,
+        origin: Array.isArray(config.FRONTEND_ORIGIN) 
+          ? config.FRONTEND_ORIGIN.includes('https://primer-rka-d5zb.vercel.app')
+            ? config.FRONTEND_ORIGIN
+            : [...config.FRONTEND_ORIGIN, 'https://primer-rka-d5zb.vercel.app']
+          : [config.FRONTEND_ORIGIN, 'https://primer-rka-d5zb.vercel.app'],
         credentials:true,
     })
 );

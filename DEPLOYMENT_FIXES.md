@@ -50,6 +50,24 @@ This document summarizes the changes made to fix deployment issues in the PRIMER
    - Added DEPLOYMENT_INSTRUCTIONS.md with quick start guide
    - Created deployment scripts for Vercel
 
+## Recent Fixes (May 2025)
+
+1. **CORS Configuration Update**
+   - Modified CORS settings in Backend1/src/index.ts to allow the Vercel domain
+   - Added Vercel frontend URL to allowed origins
+
+2. **Environment Configuration**
+   - Created .env.production file for Backend1 with production-ready settings
+   - Created .env.production for client with correct API base URL
+
+3. **Vercel.json Configuration**
+   - Simplified the routing configuration in the root vercel.json
+   - Ensured proper API routing to backend services
+
+4. **Deployment Automation**
+   - Added deploy.sh script to streamline the deployment process
+   - Script builds both frontend and backend before deployment
+
 3. **Added environment examples**
    - Created .env.example files for both backend and frontend
 

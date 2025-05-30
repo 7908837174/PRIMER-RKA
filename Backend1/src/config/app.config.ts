@@ -1,5 +1,10 @@
 import { getEnv } from "../utils/get-env";
 
+// Helper function to handle comma-separated origins
+const getOrigins = (originStr: string) => {
+    return originStr.includes(',') ? originStr.split(',').map(o => o.trim()) : originStr;
+};
+
 const appConfig =()=>({
     NODE_ENV:getEnv("NODE_ENV","development"),
     PORT:getEnv("PORT","5000"),
@@ -13,7 +18,7 @@ const appConfig =()=>({
     GOOGLE_CLIENT_SECRET:getEnv("GOOGLE_CLIENT_SECRET"),
     GOOGLE_CALLBACK_URL:getEnv("GOOGLE_CALLBACK_URL",""),
 
-    FRONTEND_ORIGIN:getEnv("FRONTEND_ORIGIN","localhost"),
+    FRONTEND_ORIGIN:getOrigins(getEnv("FRONTEND_ORIGIN","localhost")),
     FRONTEND_GOOGLE_CALLBACK_URL:getEnv("FRONTEND_GOOGLE_CALLBACK_URL")
 })
 
