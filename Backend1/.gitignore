@@ -11,6 +11,7 @@ yarn.lock
 .env.local
 .env.development
 .env.production
+.env.example
 
 
 # TypeScript build output
