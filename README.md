@@ -31,6 +31,12 @@ PRIMER is an AI-powered group project collaboration platform that transforms how
 
 PRIMER is designed to be intuitive and easy to use right out of the box. Simply create your team, invite members, and let our AI handle the rest!
 
+### Quick Deployment
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F7908837174%2FPRIMER-RKA&env=NODE_ENV,PORT,BASE_PATH,MONGO_URI,SESSION_SECRET,SESSION_EXPIRES_IN,FRONTEND_ORIGIN,VITE_API_BASE_URL&envDescription=Environment%20variables%20needed%20for%20PRIMER&project-name=primer-rka&repository-name=primer-rka)
+
+Click the button above to deploy PRIMER directly to Vercel. For detailed deployment instructions, see the [Deployment Guide](DEPLOYMENT_GUIDE.md).
+
 ---
 
 ## 🏗️ Architecture
@@ -211,7 +217,7 @@ npm run test:coverage
 - [API Documentation](docs/api.md)
 - [User Guide](docs/user-guide.md)
 - [Developer Guide](docs/developer-guide.md)
-- [Deployment Guide](docs/deployment.md)
+- [Deployment Guide](DEPLOYMENT_GUIDE.md)
 
 ---
 
