@@ -168,21 +168,34 @@ export const verifyUserService = async ({
   password: string;
   provider?: string;
 }) => {
-  const account = await AccountModel.findOne({ provider, providerId: email });
-  if (!account) {
-    throw new NotFoundException("Invalid email or password");
+  try {
+    // Find the account
+    const account = await AccountModel.findOne({ provider, providerId: email });
+    if (!account) {
+      throw new NotFoundException("Invalid email or password");
+    }
+
+    // Find the user with password field included
+    const user = await UserModel.findById(account.userId).select('+password');
+
+    if (!user) {
+      throw new NotFoundException("User not found for the given account");
+    }
+
+    // Check if password exists
+    if (!user.password) {
+      throw new BadRequestException("Password not set for this account. Try using Google login instead.");
+    }
+
+    // Compare password
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      throw new UnauthorizedException("Invalid email or password");
+    }
+
+    return user.omitPassword();
+  } catch (error) {
+    console.error("Authentication error:", error);
+    throw error;
   }
-
-  const user = await UserModel.findById(account.userId);
-
-  if (!user) {
-    throw new NotFoundException("User not found for the given account");
-  }
-
-  const isMatch = await user.comparePassword(password);
-  if (!isMatch) {
-    throw new UnauthorizedException("Invalid email or password");
-  }
-
-  return user.omitPassword();
 };

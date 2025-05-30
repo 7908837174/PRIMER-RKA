@@ -58,14 +58,23 @@ const SignIn = () => {
     mutate(values, {
       onSuccess: (data) => {
         const user = data.user;
-        console.log(user);
+        if (!user || !user.currentWorkspace) {
+          toast({
+            title: "Login Error",
+            description: "User information is incomplete. Please try again.",
+            variant: "destructive",
+          });
+          return;
+        }
+        
         const decodedUrl = returnUrl ? decodeURIComponent(returnUrl) : null;
         navigate(decodedUrl || `/workspace/${user.currentWorkspace}`);
       },
-      onError: (error) => {
+      onError: (error: any) => {
+        console.error("Login error:", error);
         toast({
-          title: "Error",
-          description: error.message,
+          title: "Login Failed",
+          description: error?.message || "Invalid email or password. Please check your credentials and try again.",
           variant: "destructive",
         });
       },

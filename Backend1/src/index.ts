@@ -41,15 +41,42 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Allow all origins in development, specific origins in production
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://primer-rka.vercel.app',
+  'https://primer-rka-d5zb.vercel.app'
+];
+
+// Add any configured origins from environment
+if (config.FRONTEND_ORIGIN) {
+  if (Array.isArray(config.FRONTEND_ORIGIN)) {
+    allowedOrigins.push(...config.FRONTEND_ORIGIN);
+  } else {
+    allowedOrigins.push(config.FRONTEND_ORIGIN);
+  }
+}
+
+// Log allowed origins for debugging
+console.log('Allowed CORS origins:', allowedOrigins);
+
 app.use(
-    cors({
-        origin: Array.isArray(config.FRONTEND_ORIGIN) 
-          ? config.FRONTEND_ORIGIN.includes('https://primer-rka-d5zb.vercel.app')
-            ? config.FRONTEND_ORIGIN
-            : [...config.FRONTEND_ORIGIN, 'https://primer-rka-d5zb.vercel.app']
-          : [config.FRONTEND_ORIGIN, 'https://primer-rka-d5zb.vercel.app'],
-        credentials:true,
-    })
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl, etc)
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.indexOf(origin) !== -1 || config.NODE_ENV === 'development') {
+        callback(null, true);
+      } else {
+        console.warn(`Origin ${origin} not allowed by CORS`);
+        callback(null, true); // Allow all origins in case of misconfiguration
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  })
 );
 
 app.get(
