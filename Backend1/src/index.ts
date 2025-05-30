@@ -51,12 +51,9 @@ app.use(
 app.get(
   `/`,
   asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-    throw new BadRequestException(
-      "This is a bad request",
-      ErrorCodeEnum.AUTH_INVALID_TOKEN
-    );
     return res.status(HTTPSTATUS.OK).json({
-      message: "Hello Name",
+      message: "PRIMER API is running",
+      status: "success"
     });
   })
 );
@@ -68,9 +65,16 @@ app.use(`${BASE_PATH}/member`, isAuthenticated, memberRoutes);
 app.use(`${BASE_PATH}/project`, isAuthenticated, projectRoutes);
 app.use(`${BASE_PATH}/task`, isAuthenticated, taskRoutes);
 
-app.use(errorHandler)
+app.use(errorHandler);
 
-app.listen(config.PORT, async()=>{
-    console.log(`Server listening on port ${config.PORT} in ${config.NODE_ENV}`)
-    await connectDatabase();
-})
+// Connect to database
+connectDatabase();
+
+// For serverless environments like Vercel
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(config.PORT, () => {
+    console.log(`Server listening on port ${config.PORT} in ${config.NODE_ENV}`);
+  });
+}
+
+export default app;
