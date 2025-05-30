@@ -58,3 +58,8 @@ temp/
 
 # Local files
 *.local
+
+# Build artifacts
+setup_vercel_env.sh
+# Vercel configuration
+VERCEL_ENV_SETUP.md
