@@ -1,25 +1,11 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run install:all && npm run build:client",
   "outputDirectory": "client/dist",
-  "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    }
-  ],
   "builds": [
     {
       "src": "Backend1/api/index.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
     }
   ],
   "routes": [
@@ -31,5 +17,13 @@
       "src": "/(.*)",
       "dest": "client/dist/$1"
     }
-  ]
+  ],
+  "functions": {
+    "Backend1/api/index.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
