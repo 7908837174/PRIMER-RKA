@@ -7,8 +7,6 @@ package-lock.json
 yarn.lock
 
 
-
-
 # TypeScript build output
 dist/
 build/
