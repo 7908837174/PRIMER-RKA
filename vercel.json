@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "buildCommand": "npm run install:all && npm run build:client",
-  "outputDirectory": "client/dist",
   "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "npm run install:all && npm run build:client",
+        "outputDirectory": "client/dist"
+      }
+    },
     {
       "src": "Backend1/api/index.js",
       "use": "@vercel/node"
@@ -22,8 +28,5 @@
     "Backend1/api/index.js": {
       "maxDuration": 30
     }
-  },
-  "env": {
-    "NODE_ENV": "production"
   }
 }
