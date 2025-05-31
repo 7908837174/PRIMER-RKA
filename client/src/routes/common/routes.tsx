@@ -8,6 +8,7 @@ import Settings from "@/page/workspace/Settings";
 import Tasks from "@/page/workspace/Tasks";
 import { AUTH_ROUTES, BASE_ROUTE, PROTECTED_ROUTES } from "./routePaths";
 import InviteUser from "@/page/invite/InviteUser";
+import { Navigate } from "react-router-dom";
 
 export const authenticationRoutePaths = [
   { path: AUTH_ROUTES.SIGN_IN, element: <SignIn /> },
@@ -24,5 +25,6 @@ export const protectedRoutePaths = [
 ];
 
 export const baseRoutePaths = [
+  { path: "/", element: <Navigate to="/sign-in" replace /> },
   { path: BASE_ROUTE.INVITE_URL, element: <InviteUser /> },
 ];
