@@ -1,0 +1,148 @@
+{
+  "timestamp": "2025-05-31T01:51:58.003Z",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "successRate": "100%"
+  },
+  "results": [
+    {
+      "name": "Main Page Load",
+      "url": "https://primer-rka-live.surge.sh",
+      "status": 200,
+      "expected": 200,
+      "success": true,
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"UTF-8\" />\r\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/vite.svg\" />\r\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"",
+      "headers": {
+        "server": "Surge",
+        "surge-cache": "HIT",
+        "surge-stamp": "546::1748653792393-c8298bb3197179c9b8f7cb3077e75396",
+        "age": "2636",
+        "date": "Sat, 31 May 2025 01:51:55 GMT",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "etag": "\"aeb9d03c4219475006878196a4c5c304ce2cea874f5ae58219f550b12dedfb4c\"",
+        "content-type": "text/html; charset=UTF-8",
+        "accept-ranges": "bytes",
+        "response-time": "4ms",
+        "content-length": "819",
+        "vary": "Accept-Encoding",
+        "connection": "close"
+      }
+    },
+    {
+      "name": "Sign Up Page",
+      "url": "https://primer-rka-live.surge.sh/sign-up",
+      "status": 200,
+      "expected": 200,
+      "success": true,
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"UTF-8\" />\r\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/vite.svg\" />\r\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"",
+      "headers": {
+        "server": "Surge",
+        "surge-cache": "HIT",
+        "surge-stamp": "11320::1748653792393-c8298bb3197179c9b8f7cb3077e75396",
+        "age": "2637",
+        "date": "Sat, 31 May 2025 01:51:56 GMT",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "etag": "\"aeb9d03c4219475006878196a4c5c304ce2cea874f5ae58219f550b12dedfb4c\"",
+        "content-type": "text/html; charset=UTF-8",
+        "accept-ranges": "bytes",
+        "response-time": "1ms",
+        "content-length": "819",
+        "vary": "Accept-Encoding",
+        "connection": "close"
+      }
+    },
+    {
+      "name": "Sign In Page",
+      "url": "https://primer-rka-live.surge.sh/sign-in",
+      "status": 200,
+      "expected": 200,
+      "success": true,
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"UTF-8\" />\r\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/vite.svg\" />\r\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"",
+      "headers": {
+        "server": "Surge",
+        "surge-cache": "HIT",
+        "surge-stamp": "546::1748653792393-c8298bb3197179c9b8f7cb3077e75396",
+        "age": "2638",
+        "date": "Sat, 31 May 2025 01:51:56 GMT",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "etag": "\"aeb9d03c4219475006878196a4c5c304ce2cea874f5ae58219f550b12dedfb4c\"",
+        "content-type": "text/html; charset=UTF-8",
+        "accept-ranges": "bytes",
+        "response-time": "1ms",
+        "content-length": "819",
+        "vary": "Accept-Encoding",
+        "connection": "close"
+      }
+    },
+    {
+      "name": "API Health Check",
+      "url": "https://furry-spring-production.up.railway.app/",
+      "status": 200,
+      "expected": 200,
+      "success": true,
+      "response": {
+        "message": "PRIMER API is running",
+        "status": "success"
+      },
+      "headers": {
+        "access-control-allow-credentials": "true",
+        "content-length": "54",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 31 May 2025 01:51:57 GMT",
+        "etag": "W/\"36-hENYJ0MLJJ9cdhI59RvKZt9AoIQ\"",
+        "server": "railway-edge",
+        "vary": "Origin",
+        "x-powered-by": "Express",
+        "x-railway-edge": "railway/asia-southeast1-eqsg3a",
+        "x-railway-request-id": "3sOhEdlwQ2O_ZlOhDcO5xA"
+      }
+    },
+    {
+      "name": "Auth Routes Available",
+      "url": "https://furry-spring-production.up.railway.app/api/auth",
+      "status": 404,
+      "expected": 404,
+      "success": true,
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/auth</pre>\n</body>\n</html>\n",
+      "headers": {
+        "access-control-allow-credentials": "true",
+        "content-length": "147",
+        "content-security-policy": "default-src 'none'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sat, 31 May 2025 01:51:57 GMT",
+        "server": "railway-edge",
+        "vary": "Origin",
+        "x-content-type-options": "nosniff",
+        "x-powered-by": "Express",
+        "x-railway-edge": "railway/asia-southeast1-eqsg3a",
+        "x-railway-request-id": "gxMR3RUjQjCQlq--DcO5xA"
+      }
+    },
+    {
+      "name": "Google OAuth Endpoint",
+      "url": "https://furry-spring-production.up.railway.app/api/auth/google",
+      "status": 302,
+      "expected": 302,
+      "success": true,
+      "response": "",
+      "headers": {
+        "access-control-allow-credentials": "true",
+        "content-length": "0",
+        "date": "Sat, 31 May 2025 01:51:58 GMT",
+        "location": "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&redirect_uri=https%3A%2F%2Ffurry-spring-production.up.railway.app%2Fapi%2Fauth%2Fgoogle%2Fcallback&scope=profile%20email&client_id=635365440124-harj2p77tlf90sljsdp756g9l687qd20.apps.googleusercontent.com",
+        "server": "railway-edge",
+        "vary": "Origin",
+        "x-powered-by": "Express",
+        "x-railway-edge": "railway/asia-southeast1-eqsg3a",
+        "x-railway-request-id": "5lgZHGZuTvW1WJ8WDcO5xA"
+      },
+      "redirectLocation": "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&redirect_uri=https%3A%2F%2Ffurry-spring-production.up.railway.app%2Fapi%2Fauth%2Fgoogle%2Fcallback&scope=profile%20email&client_id=635365440124-harj2p77tlf90sljsdp756g9l687qd20.apps.googleusercontent.com"
+    }
+  ],
+  "urls": {
+    "frontend": "https://primer-rka-live.surge.sh",
+    "backend": "https://furry-spring-production.up.railway.app"
+  }
+}
